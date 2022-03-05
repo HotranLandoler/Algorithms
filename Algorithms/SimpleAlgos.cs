@@ -315,7 +315,5 @@ namespace Algorithms
             }
             return copy;
         }
-
-        public static 
     }
 }

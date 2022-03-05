@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,15 +20,6 @@ namespace Algorithms
             Console.WriteLine(content.ToString());
         }
 
-        public static void PrintArray<T>(T[] array)
-        {
-            foreach (var item in array)
-            {
-                P(item);
-            }
-        }
-
-
         /// <summary>
         /// bool转换为string
         /// </summary>
@@ -36,6 +28,22 @@ namespace Algorithms
         public static string BoolToString(bool b)
             => b ? "*" : " ";
 
+        public static double[] GetSortedArray(int count)
+        {
+            var arr = new double[count];
+            for (int i = 0; i < count; i++)
+            {
+                arr[i] = i;
+            }
+            return arr;
+        }
 
+        public static void GetRunningTime<T>(Func<T> action, string name)
+        {
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            action();
+            stopwatch.Stop();
+            Console.WriteLine($"{name} Time: {stopwatch.Elapsed.TotalMilliseconds}");
+        }
     }
 }
