@@ -1,4 +1,5 @@
 ﻿using Algorithms.Collections;
+using Algorithms.DataStructures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Algorithms.Sorts
         }
 
         private static bool Less(T it, T that) =>
-            it.CompareTo(that) < 0;
+            Utils.Less(it, that);
 
         private static bool LessCount(T it, T that, ref int count)
         {
@@ -100,7 +101,13 @@ namespace Algorithms.Sorts
             return _items;
         }
 
-        public void QuickSort(int low, int high)
+        public IList<T> HeapSort()
+        {
+            Heap<T>.Sort(_items);
+            return _items;
+        }
+
+        private void QuickSort(int low, int high)
         {
             if (high <= low) return;
             int j = Partition(_items, low, high);

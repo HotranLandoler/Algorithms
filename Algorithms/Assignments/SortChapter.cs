@@ -68,5 +68,12 @@ namespace Algorithms.Assignments
 
             TestSort(sort, sort.QuickSort, "Quick");
         }
+
+        public static void HeapSort(int count)
+        {
+            var sort = CreateSort(count);
+
+            TestSort(sort, sort.HeapSort, "Heap");
+        }
     }
 }

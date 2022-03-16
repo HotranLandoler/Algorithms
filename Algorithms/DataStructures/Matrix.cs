@@ -8,7 +8,7 @@ namespace Algorithms.DataStructures
 {
     public class Matrix
     {
-        private double[,] matrix;
+        private readonly double[,] matrix;
 
         public double this[int row, int col] => matrix[row, col];
 

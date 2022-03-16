@@ -43,7 +43,11 @@ namespace Algorithms
             Stopwatch stopwatch = Stopwatch.StartNew();
             action();
             stopwatch.Stop();
-            Console.WriteLine($"{name} Time: {stopwatch.Elapsed.TotalMilliseconds}");
+            Console.WriteLine($"{name} Time: {stopwatch.Elapsed.TotalMilliseconds}ms");
         }
+
+        public static bool Less<T>(T it, T that)
+            where T : IComparable<T>
+            => it.CompareTo(that) < 0;
     }
 }
