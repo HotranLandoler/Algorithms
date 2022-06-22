@@ -75,5 +75,21 @@ namespace Algorithms.Assignments
 
             TestSort(sort, sort.HeapSort, "Heap");
         }
+
+        public static void LongestRepeatedSubstring(string str)
+        {
+            string[] suffixes = new string[str.Length];
+            for (int i = 0; i < str.Length; i++)
+            {
+                suffixes[i] = str[i..];
+            }
+            foreach (var item in suffixes)
+            {
+                Console.WriteLine(item);
+            }
+            Array.Sort(suffixes);
+            
+            //TODO: Find longest prefix...
+        }
     }
 }

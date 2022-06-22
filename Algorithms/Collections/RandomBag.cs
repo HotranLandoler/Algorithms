@@ -11,13 +11,13 @@ namespace Algorithms.Collections
     /// 在迭代时按随机顺序元素
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class RandomBag<T> : IEnumerable<T>
+    public class RandomBag<T> : IBag<T>
     {
         private T[] array;
 
-        public int Count { get; private set; } = 0;
+        public int Size { get; private set; } = 0;
 
-        public bool IsEmpty => Count == 0;
+        public bool IsEmpty() => Size == 0;
 
         public RandomBag(int capacity = 10)
         {
@@ -27,13 +27,13 @@ namespace Algorithms.Collections
         public RandomBag(params T[] items)
         {
             array = items;
-            Count = items.Length;
+            Size = items.Length;
         }
 
         public void Add(T item)
         {
-            array[Count] = item;
-            Count++;
+            array[Size] = item;
+            Size++;
         }
 
         /// <summary>
@@ -43,22 +43,22 @@ namespace Algorithms.Collections
         public T GetRandom()
         {
             Random rand = new();
-            return array[rand.Next(0, Count)];
+            return array[rand.Next(0, Size)];
         }
 
         private T[] ShuffleArray()
         {
             Random rand = new();
 
-            T[] newArray = new T[Count];
-            for (int i = 0; i < Count; i++)
+            T[] newArray = new T[Size];
+            for (int i = 0; i < Size; i++)
             {
                 newArray[i] = array[i];
             }
 
-            for (int i = 0; i < Count; i++)
+            for (int i = 0; i < Size; i++)
             {
-                int randIdx = rand.Next(0, Count);
+                int randIdx = rand.Next(0, Size);
                 //随机交换
                 T temp = newArray[i];
                 newArray[i] = newArray[randIdx];

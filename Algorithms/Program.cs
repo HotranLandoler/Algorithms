@@ -30,4 +30,5 @@ using Algorithms.Assignments;
 //SortChapter.QuickSort(100000);
 //SortChapter.HeapSort(100000);
 //Console.WriteLine(3 / 2);
-SearchChatper.SymbolTable();
+//SearchChatper.SymbolTable();
+SortChapter.LongestRepeatedSubstring("asadsadsadasdasdqweqwewqagjaiojertqwosadhasojngzczx");
